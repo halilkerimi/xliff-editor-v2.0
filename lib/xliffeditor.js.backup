@@ -52,7 +52,8 @@ var XliffEditor = (
             var lineSpace = inputDiv.nextSibling.firstChild
             var cursor = lineSpace.firstChild
             var lineDiv = cursor.nextSibling
-
+			inputDiv = document.createElement('div')
+			
             if (options.tabindex != null) {
                 input.tabindex = options.tabindex
             }
@@ -70,7 +71,7 @@ var XliffEditor = (
 			// work an array of lines that should be parsed, 
 			// and history the undo history (instance of History constructor).
             var mode
-            var lines = [new Line("")]
+            var lines = [new Line('')]
             var work
             var history = new History()
             var focused
@@ -142,21 +143,31 @@ var XliffEditor = (
                     options.onScroll(instance)
                 }
             })
-            connect(window, 'resize', function () { updateDisplay(true) })
+            connect(window, 'resize', function () { 
+                updateDisplay(true) 
+            })
             connect(input, 'keyup', operation(onKeyUp))
             connect(input, 'keydown', operation(onKeyDown))
             connect(input, 'keypress', operation(onKeyPress))
             connect(input, 'focus', onFocus)
             connect(input, 'blur', onBlur)
-            connect(wrapper, 'dragenter', function (e) { e.stop() })
-            connect(wrapper, 'dragover', function (e) { e.stop() })
+            connect(wrapper, 'dragenter', function (e) { 
+                e.stop() 
+            })
+            connect(wrapper, 'dragover', function (e) { 
+                e.stop() 
+            })
             connect(wrapper, 'drop', operation(onDrop))
             connect(wrapper, 'paste', function () { 
 				input.focus()
 				fastPoll()
 			})
-            connect(input, 'paste', function () { fastPoll() })
-            connect(input, 'cut', function () { fastPoll() })
+            connect(input, 'paste', function () { 
+                fastPoll() 
+            })
+            connect(input, 'cut', function () { 
+                fastPoll() 
+            })
 			
             if (document.activeElement == input) {
                 onFocus()
