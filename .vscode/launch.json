@@ -8,7 +8,8 @@
             "type": "pwa-chrome",
             "request": "launch",
             "name": "Local Data",
-            "url": "file:///C:/Temp/xliff/xliff-editor-v2.0/index.html",
+            //"url": "file:///C:/Temp/xliff/xliff-editor-v2.0/index.html",
+            "url": "file:///Users/halil/Development/xliff/xliff-editor-v2.0/index.html",
             "webRoot": "${workspaceFolder}"
         }
     ]

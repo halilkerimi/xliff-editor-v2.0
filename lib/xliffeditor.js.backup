@@ -52,7 +52,6 @@ var XliffEditor = (
             var lineSpace = inputDiv.nextSibling.firstChild
             var cursor = lineSpace.firstChild
             var lineDiv = cursor.nextSibling
-			inputDiv = document.createElement('div')
 			
             if (options.tabindex != null) {
                 input.tabindex = options.tabindex
@@ -2665,7 +2664,7 @@ var XliffEditor = (
                     }
                 }
             } else {
-                node.attachEvent('on' + type, wrapHandler);
+                node.attachEvent('on' + type, wrapHandler)
                 if (disconnect) return function () {
                     node.detachEvent('on' + type, wrapHandler)
                 }
